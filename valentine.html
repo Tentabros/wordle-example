@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💕</title>
+    <style>
+        body {
+            background-color: #302e2b;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .valentines-section {
+            display: flex;
+            justify-content: left;
+            margin-top: 250px;
+        }
+
+        .question-container {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 2rem;
+            text-align: center;
+            background-color: #b84444;
+            height: 300px;
+            border-radius: 10px;
+            border: 10px solid cadetblue;
+            margin-left: 200px;
+        }
+
+        h1 {
+            color: aliceblue;
+            font-style: italic;
+            font-size: 45px;
+            padding-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+     
+        .yes-btn, .no-btn {
+            width: 100px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 25px;
+            border: 3.5px solid cadetblue;
+            background-color: #302e2b;
+            color: aliceblue;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .yes-btn:hover {
+            background-color: #4a7c59;
+            transform: scale(1.1);
+        }
+
+        .no-btn:hover {
+            background-color: #8b3a3a;
+        }
+
+        .image-container {
+            margin-left: 400px;
+            margin-bottom: 100px;
+        }
+
+        .image-container img {
+            width: 700px;
+            position: relative;
+        }
+
+        /* Celebration styles for YES */
+        .celebration {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(184, 68, 68, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 5px solid cadetblue;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .celebration h2 {
+            color: aliceblue;
+            font-size: 50px;
+            margin: 0;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="celebration" id="celebration">
+        <h2> YES! </h2>
+        <h2>I love you so much Babu!</h2>
+    </div>
+
+    <section class="valentines-section">
+        <div class="question-container">
+            <h1>🌹 Will you be my valentine? 🌹</h1>
+
+            <div class="button-container">
+                <button class="yes-btn" onclick="handleYes()">YES</button>
+                <button class="no-btn" id="noBtn" onclick="handleNo()">NO</button>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="dog-with-rose.png" alt="Valentine?">
+        </div>
+    </section>
+
+    <script>
+        let noClickCount = 0;
+
+        function handleYes() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('celebration').style.display = 'block';
+        }
+
+        function handleNo() {
+            noClickCount++;
+            const noBtn = document.getElementById('noBtn');
+            
+            if (noClickCount === 1) {
+                noBtn.textContent = "Are you sure?";
+            } else if (noClickCount === 2) {
+                noBtn.textContent = "ARE YOU SUREE?";
+            } else if (noClickCount === 3) {
+                noBtn.textContent = "SURE NA BA YAN????";
+            } else {
+                // Move the NO button to random position
+                const x = Math.random() * (window.innerWidth - 150);
+                const y = Math.random() * (window.innerHeight - 100);
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = x + 'px';
+                noBtn.style.top = y + 'px';
+            }
+        }
+    </script>
+</body>
+</html>

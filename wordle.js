@@ -1,5 +1,5 @@
 var height = 6; //number of guesses
-var width = 19; //length of "willyoubemyvalentine"
+var width = 20; //length of "willyoubemyvalentine"
 var row = 0; //current guess (attempt #)
 var col = 0; //current letter for that attempt
 

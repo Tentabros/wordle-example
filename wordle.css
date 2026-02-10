@@ -4,36 +4,36 @@ body {
 }
 
 hr {
-    width: 95%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1300px;
 }
 
 #title {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: bold;
     letter-spacing: 2px;
+    margin-top: 5px;
 }
 
 #board {
-    width: 95%;
-    max-width: 1200px;
-    height: 420px;
+    width: 1200px; /* Exact width for 19 tiles */
+    height: auto;
     margin: 0 auto;
     margin-top: 3px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); 
+    gap: 3px;
 }
 
 .tile {
     /* Box */
     border: 2px solid lightgray;
-    width: 50px;
+    width: 56px;
     height: 60px;
-    margin: 2px;
 
     /* Text */
     color: black;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -61,8 +61,10 @@ hr {
 .keyboard-row {
     width: 400px;
     margin: 0 auto;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .key-tile {
